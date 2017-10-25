@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-.controller('AppCtrl', function($scope, $ionicModal, $timeout) {
+.controller('AppCtrl', function($scope, $http, $ionicModal, $timeout, $state, $rootScope) {
 
   // With the new view caching in Ionic, Controllers are only called
   // when they are recreated or on app start, instead of every page change.
@@ -9,36 +9,56 @@ angular.module('starter.controllers', [])
   //$scope.$on('$ionicView.enter', function(e) {
   //});
 
-  // Form data for the login modal
-  $scope.loginData = {};
+  $scope.host = "http://192.168.0.102:3000"
 
-  // Create the login modal that we will use later
-  $ionicModal.fromTemplateUrl('templates/login.html', {
-    scope: $scope
-  }).then(function(modal) {
-    $scope.modal = modal;
-  });
+  $scope.next = function(nextState){
+      console.log(nextState);
+      $state.go(nextState);
+  }
 
-  // Triggered in the login modal to close it
-  $scope.closeLogin = function() {
-    $scope.modal.hide();
-  };
+  $scope.login = function(data){
+      if(data.userType == "user"){
+        $rootScope.rootAdmin = false;
+        $state.go('app.home');
+      }else{
+        $rootScope.rootAdmin = true;
+        $state.go('app.adminDashboard');
+      }
+  }
 
-  // Open the login modal
-  $scope.login = function() {
-    $scope.modal.show();
-  };
+  $scope.createHierarchy1 = function(level){
+    var obj = {
+      level:level
+    }
+    $http.post($scope.host + "/createHierarchy",{obj,type:"l1"})
+      .then(function(response){
+        JSON.stringfy(localStorage.setItem("l1", response.data[0]._id))
+    });
+  }
+  $scope.createHierarchy2 = function(level){
+    var obj = {
+      level:level,
+      level1:JSON.parse(localStorage.getItem('l1'))
+    }
+    $http.post($scope.host + "/createHierarchy",{obj,type:"l2"})
+      .then(function(response){
+        JSON.stringfy(localStorage.setItem("l2", response.data[0]._id))
+    });
+  }
+  $scope.createHierarchy3 = function(level){
+    var obj = {
+      level:level,
+      level1:JSON.parse(localStorage.getItem('l1')),
+      level2:JSON.parse(localStorage.getItem('l2'))
+    }
+    $http.post($scope.host + "/createHierarchy",{obj,type:"l3"})
+      .then(function(response){
+        $state.go("app.viewHierarchy");
+    });
+  }
 
-  // Perform the login action when the user submits the login form
-  $scope.doLogin = function() {
-    console.log('Doing login', $scope.loginData);
 
-    // Simulate a login delay. Remove this and replace with your login
-    // code if using a login system
-    $timeout(function() {
-      $scope.closeLogin();
-    }, 1000);
-  };
+
 })
 
 .controller('PlaylistsCtrl', function($scope) {

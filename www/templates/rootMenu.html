@@ -9,7 +9,7 @@
         </button>
       </ion-nav-buttons>
     </ion-nav-bar>
-    <ion-nav-view name="menuContent"></ion-nav-view>
+    <ion-nav-view name="rootContent"></ion-nav-view>
   </ion-side-menu-content>
 
   <ion-side-menu side="left">
@@ -18,24 +18,18 @@
     </ion-header-bar>
     <ion-content>
       <ion-list>
-        <ion-item menu-close ng-href="#/app/home" ng-if = "!rootAdmin">
+        <ion-item menu-close ng-href="#/root/home">
           Home
         </ion-item>
-        <ion-item menu-close ng-href="#/app/createSession" ng-if = "!rootAdmin">
-          Create Session
-        </ion-item>
-        <ion-item menu-close ng-href="#/app/viewSession" ng-if = "!rootAdmin">
-          View Session
-        </ion-item>
-          <ion-item ng-click = "next('login')">
-            Logout
-          </ion-item>
-        <ion-item menu-close ng-href="#/root/createHierarchy" ng-if = "rootAdmin">
+        <ion-item menu-close ng-href="#/root/createHierarchy">
           Create Hierarchy
         </ion-item>
-        <ion-item menu-close ng-href="#/root/viewHierarchy" ng-if = "rootAdmin">
+        <ion-item menu-close ng-href="#/root/viewHierarchy">
           View Hierarchy
         </ion-item>
+          <ion-item ng-click = "logout()">
+            Logout
+          </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>

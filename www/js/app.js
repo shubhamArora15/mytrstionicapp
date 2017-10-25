@@ -22,25 +22,25 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'btford.s
   });
 })
 
-.factory('socket',function (socketFactory) {
-  var myIoSocket = io.connect('http://basicapp.arorashubham.com');
-  // var myIoSocket = io.connect('http://192.168.0.115:3000');
-  mySocket = socketFactory({
-    ioSocket: myIoSocket
-  });
-
-  return mySocket;
-})
+// .factory('socket',function (socketFactory) {
+//   var myIoSocket = io.connect('http://basicapp.arorashubham.com');
+//   var myIoSocket = io.connect('http://192.168.0.115:3000');
+//   mySocket = socketFactory({
+//     ioSocket: myIoSocket
+//   });
+//
+//   return mySocket;
+// })
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
     .state('app', {
-    url: '/app',
-    abstract: true,
-    templateUrl: 'templates/menu.html',
-    controller: 'AppCtrl'
-  })
+      url: '/app',
+      abstract: true,
+      templateUrl: 'templates/menu.html',
+      controller: 'AppCtrl'
+    })
 
   .state('app.createSession', {
     url: '/createSession',
@@ -65,11 +65,25 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'btford.s
             templateUrl: 'templates/home.html'
           }
         }
-      }).state('app.createHierarchy', {
-        url: '/createHierarchy',
+      }).state('app.createHierarchy1', {
+        url: '/createHierarchy1',
         views: {
           'menuContent': {
-            templateUrl: 'templates/createHierarchy.html'
+            templateUrl: 'templates/createHierarchy1.html'
+          }
+        }
+      }).state('app.createHierarchy2', {
+        url: '/createHierarchy2',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/createHierarchy2.html'
+          }
+        }
+      }).state('app.createHierarchy3', {
+        url: '/createHierarchy3',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/createHierarchy3.html'
           }
         }
       }).state('app.viewHierarchy', {
@@ -86,46 +100,30 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'btford.s
             templateUrl: 'templates/updateHierarchy.html'
           }
         }
+      }).state('app.adminDashboard', {
+        url: '/adminDashboard',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/adminDashboard.html'
+          }
+        }
       })
       .state('login', {
         url: '/login',
-        templateUrl: 'templates/login.html'
+        templateUrl: 'templates/login.html',
+        controller: 'AppCtrl'
       })
       .state('reset', {
         url: '/reset',
-        templateUrl: 'templates/reset.html'
+        templateUrl: 'templates/reset.html',
+        controller: 'AppCtrl'
       })
       .state('signup', {
         url: '/signup',
-        templateUrl: 'templates/signup.html'
+        templateUrl: 'templates/signup.html',
+        controller: 'AppCtrl'
       })
-  .state('app.browse', {
-      url: '/browse',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/browse.html'
-        }
-      }
-    })
-    .state('app.playlists', {
-      url: '/playlists',
-      views: {
-        'menuContent': {
-          templateUrl: 'templates/playlists.html',
-          controller: 'PlaylistsCtrl'
-        }
-      }
-    })
 
-  .state('app.single', {
-    url: '/playlists/:playlistId',
-    views: {
-      'menuContent': {
-        templateUrl: 'templates/playlist.html',
-        controller: 'PlaylistCtrl'
-      }
-    }
-  });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/login');
+  $urlRouterProvider.otherwise('/login');
 });

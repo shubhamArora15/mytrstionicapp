@@ -19,9 +19,21 @@
           <input type="password" ng-model="loginData.password" placeholder="Password" style="text-align: center;">
         </label>
       </div>
+
+      <label class="item item-input item-select">
+  		    <div class="input-label">
+  		      Select User
+  		    </div>
+  		    <select ng-model="loginData.userType" ng-change="changeUserType(formData.userType)">
+  		    	<option value="">Select</option>
+  		      <option value="user">user</option>
+  		      <option value="admin">Admin</option>
+  		    </select>
+  		</label>
       <label class="item" style="border:none !important;">
-        <button class="button button-block button-positive" ng-click = "signin(loginData)">Log in</button>
+        <button class="button button-block button-positive" ng-click = "login(loginData)">Log in</button>
       </label>
+
       <hr>
       <label class="row" style="border:none !important;">
           <button class = "button button-block" ng-click = "next('signup')">Register here</button>
