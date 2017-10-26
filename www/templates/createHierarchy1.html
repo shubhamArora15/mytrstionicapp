@@ -2,7 +2,8 @@
   <center>
     <h1>Create Hierarchy</h1>
     <a ng-click = "logout()">Logut</a>
-    <a ng-click = "next('root.adminDashboard')">Back to home</a>
+    <a ng-click = "next('app.adminDashboard')">Back to home</a>
+    <a ng-click = "next('app.adminDashboard')">View hierarchies</a>
   </center>
   <hr>
   <div class="padding" style="text-align:center;">
@@ -15,8 +16,14 @@
           <input type="text" ng-model="level.name" placeholder="Enter Level Name" style="text-align: center;">
         </label>
       </div>
-    </label>
-          <button class="button button-block" ng-click = "createHierarchy1(level)">Create Hierarchy</button>
+      <label>
+          <button class="button button-block" ng-click = "createHierarchy1(level)" ng-if = "levelFirstId == undefined">Create Hierarchy</button>
+      </label>
+      <label>
+          <button class="button button-block" ng-click = "updateHierarchy(levelFirstId, level, 'first')" ng-if = "levelFirstId != undefined">Update Hierarchy</button>
+      </label>
+      <label>
+          <button class="button button-block" ng-click = "findNextLevel(levelFirstId, 'second')" ng-if = "levelFirstId != undefined">Next</button>
       </label>
     </div>
   </form>

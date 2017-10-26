@@ -1,0 +1,45 @@
+<ion-content>
+  <center>
+    <h1>Update Hierarchy</h1>
+    Welcome - <a ng-click = "logout()">Logut</a>
+    <a ng-click = "next('app.adminDashboard')">Back to home</a>
+  </center>
+  <center><h1>Create Hierarchy</h1></center>
+  <hr>
+  <form>
+    <label class="item item-input item-select">
+        <div class="input-label">
+          Select Level One
+        </div>
+        <select ng-model="levelData.level1" ng-change="changeUserType(levelData.level1)">
+          <option value="">Select</option>
+          <option value="user">user</option>
+          <option value="admin">Admin</option>
+        </select>
+    </label>
+    <label class="item item-input item-select">
+        <div class="input-label">
+          Select Level 2
+        </div>
+        <select ng-model="levelData.level2" ng-change="changeUserType(levelData.level2)">
+          <option value="">Select</option>
+          <option value="user">user</option>
+          <option value="admin">Admin</option>
+        </select>
+    </label>
+    <label class="item item-input item-select">
+  		    <div class="input-label">
+  		      Select Level 3
+  		    </div>
+  		    <select ng-model="levelData.level3" ng-change="changeUserType(levelData.level3)">
+  		    	<option value="">Select</option>
+  		      <option value="user">user</option>
+  		      <option value="admin">Admin</option>
+  		    </select>
+  		</label>
+      <hr>
+      <label>
+          <button class="button button-block" ng-click = "changeHierarchy(levelData)">Update Hierarchy</button>
+      </label>
+  </form>
+</ion-content>

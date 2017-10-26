@@ -2,7 +2,8 @@
   <center>
     <h1>Create Hierarchy</h1>
     <a ng-click = "logout()">Logut</a>
-    <a ng-click = "next('root.adminDashboard')">Back to home</a>
+    <a ng-click = "next('app.adminDashboard')">Back to home</a>
+    <a ng-click = "next('app.viewHierarchy')">View hierarchies</a>
   </center>
   <hr>
   <div class="padding" style="text-align:center;">
@@ -16,8 +17,14 @@
         </label>
       </div>
     </label>
-          <button class="button button-block" ng-click = "createHierarchy2(level2, level1)">Create Hierarchy</button>
-      </label>
+        <button class="button button-block" ng-click = "createHierarchy2(level2)" ng-if = "levelSecondId == undefined">Create Hierarchy</button>
+    </label>
+    <label>
+        <button class="button button-block" ng-click = "updateHierarchy(levelSecondId, level2, 'second')" ng-if = "levelSecondId != undefined">Update Hierarchy</button>
+    </label>
+    <label>
+        <button class="button button-block" ng-click = "findNextLevel(levelFirstId, 'third')" ng-if = "levelSecondId != undefined">Next</button>
+    </label>
     </div>
   </form>
 </ion-content>
