@@ -1,0 +1,16 @@
+<ion-content>
+  <div class="list">
+    <center><h1>Edit Level</h1></center>
+    <button type="submit" class="btn btn-default" ng-click = "logout()">Logout</button>
+    <button type="submit" class="btn btn-default" ng-click = "next('app.adminDashboard')">Back to home</button>
+    <hr>
+    <center><h2>Edit Level</h2></center>
+    <label class="item item-input">
+      <input type="text" class="form-control" ng-model = "levelName" value="{{levelName}}">
+    </label>
+    <button ng-click = "updateHierarchy(levelName, levelId)" class="button button-block button-positive">Update</button>
+
+    <hr>
+    </a>
+  </div>
+</ion-content>

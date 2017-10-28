@@ -1,0 +1,41 @@
+<ion-content>
+  <div class="list">
+    <center><h1>Edit Session</h1></center>
+    <button class="button button-block button-positive" ng-click = "logout()">Logout</button>
+    <button class="button button-block" ng-click = "next('app.home')">Back to home</button>
+    <hr>
+    <center><h2 ng-model = "sessionName">{{sessionName}}</h2></center>
+    <div class="list list-inset inputBox ">
+      Session:
+    <label class="item item-input">
+      <input type="text" class="form-control" ng-model = "sessionName" value="{{sessionName}}">
+    </label>
+    <button ng-click = "updateSession(sessionName, sessionId)" class="button button-block button-positive">Update</button>
+
+    </div>
+
+
+  <h3>Levels:</h3>
+    <div class="list list-inset inputBox " ng-repeat = "level in allLevels">
+     <label class="item item-input">
+       <input type="text" value = "{{level.name}}" placeholder="Enter Level" style="text-align: center;">
+     </label>
+     <button ng-click = "updateLevel(level.id, level.name, level.index )" class="button button-block button-positive">Update</button>
+   </div>
+
+
+    <h3>Media Lists:</h3>
+    <ul class="list" ui-sortable="sortableOptions2" ng-model="mediaList">
+      <li class="item" ng-repeat = "list in mediaList" style="cursor:pointer">
+        <span class="badge" style="padding:6px 10px;width:100px;cursor:pointer" ng-click = "deleteMedia(list._id)">Delete</span>
+        <!-- <span class="badge" style="padding:6px 10px;width:100px;cursor:pointer" ng-click = "editMedia(list._id)">Edit</span> -->
+        <span style="cursor:pointer">{{list}}</span>
+      </li>
+      <button type="button" class="button button-block button-positive" data-dismiss="modal" ng-click = "updateMediaOnly(mediaList, sessionId)">Update</button>
+    </ul>
+
+
+    <hr>
+    </a>
+  </div>
+</ion-content>

@@ -1,20 +1,22 @@
 <ion-content>
   <div class="list" ng-init = "viewSession()">
     <center><h1>All sessions</h1></center>
-    <button type="submit" class="btn btn-default" ng-click = "logout()">Logout</button>
-    <button type="submit" class="btn btn-default" ng-click = "next('app.home')">Back to home</button>
-    <hr>
-      <h2>Session List</h2>
+
+      <button class="btn btn-default" ng-click = "logout()">Logout</button>
+      <button class="btn btn-default" ng-click = "next('app.home')">Back to home</button>
+
+      <hr>
+      <h2>Media List</h2>
   		<a class="item" ng-click = "getSessionData(session._id)" id="sessionList"
       style="cursor:pointer;background: rgba(239, 236, 236, 0.270588);
       margin:0px 10px 10px 10px !important;"
-      ng-repeat="session in sessionList">
-  			<h2 style="display:block;cursor:pointer" ng-click = "viewSessionDetails(session)"> {{session.session}}</h2>
+      ng-repeat="media in mediaList.photos">
+  			<h2> {{media}}</h2>
         <button class="button button-clear;"
         style="margin-top: 0px;float:right;color:white;background:gray;border-radius:4px;">
           Delete
         </button>
-        <button class="button button-clear;" ng-click = "viewSessionDetails(session)"
+        <button class="button button-clear;" ng-click = "viewMedia(session)"
         style="margin-top: 0px;margin-right:4px;float:right;opacity: 1;color:white;background:gray;border-radius:4px;">
           View
         </button>

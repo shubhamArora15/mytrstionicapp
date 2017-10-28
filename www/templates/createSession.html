@@ -1,8 +1,9 @@
-<ion-content>
+<ion-content ng-init = "levelList()">
   <center>
     <h1>Create Session</h1>
-    <a ng-click = "logout()">Logut</a>
-    <a ng-click = "next('home')">Back to home</a>
+    <button type="submit" class="btn btn-default" ng-click = "logout()">Logout</button>
+    <button type="submit" class="btn btn-default" ng-click = "next('app.home')">Back to home</button>
+
   </center>
   <hr>
   <div class="padding" style="text-align:center;">
@@ -10,31 +11,51 @@
   </div>
   <form>
     <div class="list">
+
+      <label class="item item-input item-select">
+          <div class="input-label">
+            {{levelRoot}}
+          </div>
+          <select ng-model = "levelOne" ng-change = "getSecondLevel(levelOne)">
+            <option value = "" >Select</option>
+            <option value = "{{list}}" ng-repeat = "list in rootList">{{list.name}}</option>
+          </select>
+      </label>
+      <label class="item item-input item-select">
+          <div class="input-label">
+            {{levelMain}}
+          </div>
+          <select ng-model = "levelTwo" ng-change = "getThirdLevel(levelTwo)">
+            <option value="">Select</option>
+            <option value = "{{list}}" ng-repeat  = "list in secondRootList">{{list.name}}</option>
+          </select>
+      </label>
+      <label class="item item-input item-select">
+          <div class="input-label">
+            {{levelSub}}
+          </div>
+          <select ng-model = "levelThree" ng-change = "getFinalLevel(levelThree)">
+            <option value="">Select</option>
+            <option value = "{{list}}" ng-repeat = "list in thirdRootList" >{{list.name}}</option>
+          </select>
+      </label>
+
        <div class="list list-inset inputBox ">
         <label class="item item-input">
           <input type="text" ng-model="session.name" placeholder="Enter Session Name" style="text-align: center;">
         </label>
       </div>
-      <div class="list list-inset inputBox">
-        <label for="photo1">Add image 1:</label>
+      <div class="form-group">
+        <label for="photo1">Add File:</label>
         <input id="photo1" type="file"
        class="form-control" name="myFile"
-        ng-model = "photos">
-      </div>
-      <div class="list list-inset inputBox">
-        <label for="photo2">Add image 2:</label>
-        <input id="photo2" type="file"
-         name="photo2" class="form-control"
-        ng-model = "photos">
-      </div>
-      <div class="list list-inset inputBox">
-        <label for="photo3">Add Image 3:</label>
-        <input id="photo3" type="file"
-         name="photo3" class="form-control"
-        ng-model = "photos">
+        ng-model = "photos" multiple>
+        <div id = "showData">
+
+        </div>
       </div>
     </label>
-          <button class="button button-block" ng-click = "createSession(session, photos)">Create Session</button>
+          <button class="button button-block" ng-click = "createSession(session, photos, allLevel)">Create Session</button>
       </label>
     </div>
   </form>

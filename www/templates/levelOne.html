@@ -1,0 +1,23 @@
+<ion-content style="margin-top: 50px !important" view-title="" ng-init="hierarchyList()">
+    <center>Hierarchy List</center>
+    <div class="list" >
+		<a class="item " id="hierarchyPage"
+    style="background: rgba(239, 236, 236, 0.270588);margin:0px 10px 10px 10px !important;" ng-repeat="request in hierarchyList">
+        <span ng-click = "viewHierarchyDetails(request)" style="display:block">
+          <h1>{{request.name}}</h1>
+        </span>
+       <span>
+         <button class="button button-positive" ng-click="deleteList(request)"
+         style="opacity: 1;float:right;margin-top:0px;z-index:1000">delete</button>
+       </span>
+		</a><center>
+		<a class="button"  style="background: rgba(239, 236, 236, 0.270588);margin:0px 10px 10px 10px !important;" ng-if = "hierarchyList.length == 0">
+			Currently there are no request to show here!
+		</a></center>
+	    <a ng-if = "hierarchyList == undefined">
+	      <div class="button-bar ">
+	        <ion-spinner icon="android" style="margin:auto;"></ion-spinner>
+	      </div>
+	    </a>
+	</div>
+  </ion-content>

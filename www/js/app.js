@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'btford.socket-io'])
+angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'btford.socket-io', 'ui.sortable'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -50,11 +50,27 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'btford.s
       }
     }
   })
+  .state('app.viewMedia', {
+    url: '/viewMedia',
+    views: {
+      'menuContent': {
+        templateUrl: 'templates/viewMedia.html'
+      }
+    }
+  })
   .state('app.viewSession', {
       url: '/viewSession',
       views: {
         'menuContent': {
           templateUrl: 'templates/viewSession.html'
+        }
+      }
+    })
+    .state('app.viewSessionDetails', {
+      url: '/viewSessionDetails',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/viewSessionDetails.html'
         }
       }
     })
@@ -93,6 +109,34 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'btford.s
             templateUrl: 'templates/viewHierarchy.html'
           }
         }
+      }).state('app.levelOne', {
+        url: '/levelOne',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/levelOne.html'
+          }
+        }
+      }).state('app.levelTwo', {
+        url: '/levelTwo',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/levelTwo.html'
+          }
+        }
+      }).state('app.levelThree', {
+        url: '/levelThree',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/levelThree.html'
+          }
+        }
+      }).state('app.viewHierarchyDetails', {
+        url: '/viewHierarchyDetails',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/viewHierarchyDetails.html'
+          }
+        }
       }).state('app.updateHierarchy', {
         url: '/updateHierarchy',
         views: {
@@ -112,6 +156,11 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'btford.s
         url: '/login',
         templateUrl: 'templates/login.html',
         controller: 'AppCtrl'
+      })
+      .state('verify', {
+        url: '/verify',
+        templateUrl: 'templates/verify.html',
+        controller: 'verifyCtrl'
       })
       .state('reset', {
         url: '/reset',

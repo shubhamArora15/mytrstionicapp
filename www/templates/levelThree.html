@@ -1,0 +1,42 @@
+<ion-content style="margin-top: 50px !important" view-title="" ng-init="hierarchyList()">
+    <center>Hierarchy List</center>
+    <div class="list" >
+
+      <label class="item item-input item-select">
+          <div class="input-label">
+            {{levelRoot}}
+          </div>
+          <select ng-model = "levelOne" ng-change = "getSecondLevel(levelOne)">
+            <option value = "" >Select</option>
+            <option value = "{{list}}" ng-repeat = "list in hierarchyList">{{list.name}}</option>
+          </select>
+      </label>
+      <label class="item item-input item-select">
+          <div class="input-label">
+            {{levelMain}}
+          </div>
+          <select ng-model = "levelTwo" ng-change = "getThirdLevel(levelTwo)">
+            <option value="">Select</option>
+            <option value = "{{list}}" ng-repeat  = "list in secondRootList">{{list.name}}</option>
+          </select>
+      </label>
+		<a class="item " id="hierarchyPage"
+    style="background: rgba(239, 236, 236, 0.270588);margin:0px 10px 10px 10px !important;" ng-repeat="request in thirdRootList">
+        <span ng-click = "viewHierarchyDetails(request)" style="display:block;cursor:pointer">
+          <h1>{{request.name}}</h1>
+        </span>
+       <span>
+         <button class="button button-positive" ng-click="deleteList(request)"
+         style="opacity: 1;float:right;margin-top:0px;z-index:1000">delete</button>
+       </span>
+		</a><center>
+		<a class="button"  style="background: rgba(239, 236, 236, 0.270588);margin:0px 10px 10px 10px !important;" ng-if = "hierarchyList.length == 0">
+			Currently there are no request to show here!
+		</a></center>
+	    <a ng-if = "hierarchyList == undefined">
+	      <div class="button-bar ">
+	        <ion-spinner icon="android" style="margin:auto;"></ion-spinner>
+	      </div>
+	    </a>
+	</div>
+  </ion-content>

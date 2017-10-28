@@ -27,15 +27,21 @@
         <ion-item menu-close ng-href="#/app/viewSession" ng-if = "!rootAdmin">
           View Session
         </ion-item>
-          <ion-item ng-click = "next('login')">
-            Logout
-          </ion-item>
-        <ion-item menu-close ng-href="#/app/createHierarchy" ng-if = "rootAdmin">
+        <ion-item menu-close ng-click = "scanBarcode()" ng-if = "!rootAdmin">
+          Scan Session
+        </ion-item>
+        <ion-item menu-close ng-href="#/app/viewSession" ng-if = "!rootAdmin">
+          Scanned Sessions
+        </ion-item>
+        <ion-item menu-close ng-href="#/app/adminDashboard" ng-if = "rootAdmin">
           Create Hierarchy
         </ion-item>
         <ion-item menu-close ng-href="#/app/viewHierarchy" ng-if = "rootAdmin">
           View Hierarchy
         </ion-item>
+          <ion-item ng-click = "logout()">
+            Logout
+          </ion-item>
       </ion-list>
     </ion-content>
   </ion-side-menu>

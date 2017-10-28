@@ -10,14 +10,16 @@
 <hr>
   <form>
     <div class="list">
-       <div class="list list-inset inputBox ">
-        <label class="item item-input">
-          <input type="email" ng-model="signupData.email" placeholder="Email" style="text-align: center;">
-        </label>
-      </div>
+
       <div class="list list-inset inputBox ">
         <label class="item item-input">
           <input type="text" ng-model="signupData.username" placeholder="Enter Name" style="text-align: center;">
+        </label>
+      </div>
+
+       <div class="list list-inset inputBox ">
+        <label class="item item-input">
+          <input type="email" ng-model="signupData.email" placeholder="Email" style="text-align: center;">
         </label>
       </div>
       <div class="list list-inset inputBox ">
@@ -34,7 +36,7 @@
       <div class="g-recaptcha" data-sitekey="6LfqhzMUAAAAABnwScq72GKBfjQoq_U367QZ4wkY"></div>
 
       <label class="item" style="border:none !important;">
-        <button class="button button-block button-positive" ng-click = "signUp(signupData)">Submit</button>
+        <button class="button button-block button-positive" ng-click = "signup(signupData)">Submit</button>
           <!-- <button class = "button button-block" ng-click = "next('')">Register here</button>. -->
 
       </label>

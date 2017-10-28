@@ -1,4 +1,4 @@
-<ion-content>
+<ion-content ng-init = "getLevelFirst()">
   <center>
     <h1>Create Hierarchy</h1>
     <a ng-click = "logout()">Logut</a>
@@ -11,19 +11,25 @@
   </div>
   <form>
     <div class="list">
-       <div class="list list-inset inputBox ">
+      <label class="item item-input item-select">
+  		    <div class="input-label">
+  		      Select Category
+  		    </div>
+  		    <select ng-model="levelData.level1">
+  		    	<option value="">Select</option>
+            <option value="{{list._id}}" ng-repeat = "list in levelFirst">{{list.name}}</option>
+  		    </select>
+  		</label>
+
+      <div class="list list-inset inputBox">
         <label class="item item-input">
           <input type="text" ng-model="level2.name" placeholder="Enter Level Name" style="text-align: center;">
         </label>
       </div>
-    </label>
-        <button class="button button-block" ng-click = "createHierarchy2(level2)" ng-if = "levelSecondId == undefined">Create Hierarchy</button>
-    </label>
-    <label>
-        <button class="button button-block" ng-click = "updateHierarchy(levelSecondId, level2, 'second')" ng-if = "levelSecondId != undefined">Update Hierarchy</button>
-    </label>
-    <label>
-        <button class="button button-block" ng-click = "findNextLevel(levelFirstId, 'third')" ng-if = "levelSecondId != undefined">Next</button>
+
+      <label>
+          <button class="button button-block" ng-click = "createHierarchy2(level2, levelData)" ng-if = "levelSecondId == undefined">Create Hierarchy</button>
+      </label>
     </label>
     </div>
   </form>
