@@ -4,7 +4,7 @@
 // 'starter' is the name of this angular module example (also set in a <body> attribute in index.html)
 // the 2nd parameter is an array of 'requires'
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'btford.socket-io', 'ui.sortable'])
+angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'slick', 'btford.socket-io', 'ui.sortable', 'ksSwiper'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -21,17 +21,23 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'btford.s
     }
   });
 })
+.factory('socket', function (socketFactory) {
 
-// .factory('socket',function (socketFactory) {
-//   var myIoSocket = io.connect('http://basicapp.arorashubham.com');
-//   var myIoSocket = io.connect('http://192.168.0.115:3000');
-//   mySocket = socketFactory({
-//     ioSocket: myIoSocket
-//   });
-//
-//   return mySocket;
-// })
+  // var myIoSocket = io.connect('http://basicapp.arorashubham.com');
+  var myIoSocket = io.connect('http://192.168.0.109:3000');
+  mySocket = socketFactory({
+    ioSocket: myIoSocket
+  });
 
+  return mySocket;
+}).directive('dynamicUrl', function () {
+    return {
+        restrict: 'A',
+        link: function postLink(scope, element, attr) {
+            element.attr('src', attr.dynamicUrlSrc);
+        }
+    };
+})
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
 
@@ -63,6 +69,21 @@ angular.module('starter', ['ionic', 'starter.controllers','ngCordova', 'btford.s
       views: {
         'menuContent': {
           templateUrl: 'templates/viewSession.html'
+        }
+      }
+    }).state('app.slideShow', {
+        url: '/slideShow',
+        views: {
+          'menuContent': {
+            templateUrl: 'templates/slideShow.html'
+          }
+        }
+      })
+    .state('app.scannedSessions', {
+      url: '/scannedSessions',
+      views: {
+        'menuContent': {
+          templateUrl: 'templates/scannedSessions.html'
         }
       }
     })

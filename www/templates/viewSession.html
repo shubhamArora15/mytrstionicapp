@@ -9,14 +9,14 @@
       style="cursor:pointer;background: rgba(239, 236, 236, 0.270588);
       margin:0px 10px 10px 10px !important;"
       ng-repeat="session in sessionList">
-  			<h2 style="display:block;cursor:pointer" ng-click = "viewSessionDetails(session)"> {{session.session}}</h2>
+  			<h2 style="display:block;cursor:pointer" ng-click = "getSessionData(session._id)"> {{session.session}}</h2>
         <button class="button button-clear;"
         style="margin-top: 0px;float:right;color:white;background:gray;border-radius:4px;">
           Delete
         </button>
         <button class="button button-clear;" ng-click = "viewSessionDetails(session)"
         style="margin-top: 0px;margin-right:4px;float:right;opacity: 1;color:white;background:gray;border-radius:4px;">
-          View
+          Edit
         </button>
   	  </a>
     <hr>

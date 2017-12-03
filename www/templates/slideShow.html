@@ -1,0 +1,96 @@
+<ion-pane>
+  <ion-content>
+    <!-- <ion-slide-box
+      show-pager="true"
+      does-continue="true"
+      pager-click="true"
+      auto-play="true"
+      slide-interval="4000">
+
+    <ion-slide ng-repeat="photo in photosData">
+      {{photo}}
+        <img class="img-responsive"  src="" dynamic-url dynamic-url-src="{{host}}/images/{{photo}}" style = "width:100%;height:700px"
+         ng-if = "split(photo) == 'jpg' || split(photo) == 'png' " alt="...">
+
+         <span>
+            <video src="" dynamic-url dynamic-url-src="{{host}}/images/{{photo}}"  style = "width:100%;height:700px;"  ng-if = "split(photo) == 'mp4' || split(photo) == 'mkv'"  controls>
+            </video>
+         </span>
+         <span>
+          <audio  ng-if = "split(photo) == 'mp3' " controls style = "width:100%">
+            <source src="" dynamic-url dynamic-url-src="{{host}}/images/{{photo}}" type="audio/mpeg">
+            </audio>
+        </span>
+    </ion-slide>
+</ion-slide-box> -->
+    <!-- <span ng-repeat = "photo in photosData">
+  <slick infinite="true" dots="true" speed="300" slides-to-show="5"
+  touch-move="true">
+    <img class="img-responsive"  src="" dynamic-url dynamic-url-src="{{host}}/images/{{photo}}" style = "width:100%;height:700px"
+     ng-if = "split(photo) == 'jpg' || split(photo) == 'png' " alt="...">
+
+     <span>
+        <video src="" dynamic-url dynamic-url-src="{{host}}/images/{{photo}}"  style = "width:100%;height:700px;"  ng-if = "split(photo) == 'mp4' || split(photo) == 'mkv'"  controls>
+        </video>
+     </span>
+     <span>
+      <audio  ng-if = "split(photo) == 'mp3' " controls style = "width:100%">
+        <source src="" dynamic-url dynamic-url-src="{{host}}/images/{{photo}}" type="audio/mpeg">
+        </audio>
+    </span>
+</slick>
+</span> -->
+  <ks-swiper-container initial-slide="3" speed="20" loop="true" show-nav-buttons="false" slides-per-view="3" space-between="5"
+   pagination-clickable="true" on-ready="onReadySwiper(swiper)"
+   override-parameters="{effect: 'coverflow',coverflow: {rotate: 50,stretch: 0,depth: 100,modifier: 1,slideShadows : false}}">
+    <ks-swiper-slide class="swiper-slide" ng-repeat = "photo in photosData">
+      <img class="img-responsive"  src="" dynamic-url dynamic-url-src="{{host}}/images/{{photo}}" style = "width:100%;height:700px"
+       ng-if = "split(photo) == 'jpg' || split(photo) == 'png' " alt="...">
+
+       <span>
+          <video src="" dynamic-url dynamic-url-src="{{host}}/images/{{photo}}"  style = "width:100%;height:700px;"  ng-if = "split(photo) == 'mp4' || split(photo) == 'mkv'"  controls>
+          </video>
+       </span>
+       <span>
+        <audio  ng-if = "split(photo) == 'mp3' " controls style = "width:100%">
+          <source src="" dynamic-url dynamic-url-src="{{host}}/images/{{photo}}" type="audio/mpeg">
+          </audio>
+      </span>
+
+    </ks-swiper-slide>
+</ks-swiper-container>
+  <!-- <div id="carousel-example-generic" class="carousel slide container" style = "width:100%;height:700px" data-ride="carousel"> -->
+        <!-- Wrapper for slides -->
+        <!-- <div class="carousel-inner">
+          <div class="item full-screen" style = "width:100%;height:700px" ng-attr-id = "{{photo}}" ng-class="{'active': $first}" ng-repeat = "photo in photosData">
+
+           <img class="img-responsive"  ng-src="{{host}}/images/{{photo}}" style = "width:100%;height:700px"
+            ng-if = "split(photo) == 'jpg' || split(photo) == 'png' " alt="...">
+
+            <span>
+               <video src="" dynamic-url dynamic-url-src="{{host}}/images/{{photo}}"  style = "width:100%;height:700px;"  ng-if = "split(photo) == 'mp4' || split(photo) == 'mkv'"  controls>
+               </video>
+            </span>
+            <span>
+             <audio  ng-if = "split(photo) == 'mp3' " controls style = "width:100%">
+               <source src="" dynamic-url dynamic-url-src="{{host}}/images/{{photo}}" type="audio/mpeg">
+               </audio>
+           </span>
+
+         </center>
+            <div class="carousel-caption">
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Controls -->
+        <!-- <a class="left carousel-control" href="#carousel-example-generic" target = "_self" role="button" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left" ng-click = "checkEvent(this.id)"></span>
+        </a>
+        <a class="right carousel-control" href="#carousel-example-generic" role="button" target = "_self" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right" ng-click = "checkEvent()"></span>
+        </a>
+    </div> -->
+
+</ion-content>
+</ion-pane>

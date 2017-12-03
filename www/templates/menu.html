@@ -30,8 +30,8 @@
         <ion-item menu-close ng-click = "scanBarcode()" ng-if = "!rootAdmin">
           Scan Session
         </ion-item>
-        <ion-item menu-close ng-href="#/app/viewSession" ng-if = "!rootAdmin">
-          Scanned Sessions
+        <ion-item menu-close ng-click = "viewScannedSessions()" ng-if = "!rootAdmin">
+          View scanned Sessions
         </ion-item>
         <ion-item menu-close ng-href="#/app/adminDashboard" ng-if = "rootAdmin">
           Create Hierarchy

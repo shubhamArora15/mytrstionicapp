@@ -1,8 +1,8 @@
 <ion-content ng-init = "levelList()">
   <center>
     <h1>Create Session</h1>
-    <button type="submit" class="btn btn-default" ng-click = "logout()">Logout</button>
-    <button type="submit" class="btn btn-default" ng-click = "next('app.home')">Back to home</button>
+    <button class="button button-block button-positive" ng-click = "logout()">Logout</button>
+    <button class="button button-block" ng-click = "next('app.home')">Back to home</button>
 
   </center>
   <hr>
@@ -45,17 +45,17 @@
           <input type="text" ng-model="session.name" placeholder="Enter Session Name" style="text-align: center;">
         </label>
       </div>
-      <div class="form-group">
-        <label for="photo1">Add File:</label>
-        <input id="photo1" type="file"
+      <div class="list list-inset inputBox">
+        <label>Add File:</label>
+        <input id = "photo1" type="file"
        class="form-control" name="myFile"
-        ng-model = "photos" multiple>
+        ng-model = "photos">
         <div id = "showData">
 
         </div>
       </div>
     </label>
-          <button class="button button-block" ng-click = "createSession(session, photos, allLevel)">Create Session</button>
+          <button class="button button-block button-positive" ng-click = "createSession(session, photos, allLevel)">Create Session</button>
       </label>
     </div>
   </form>
